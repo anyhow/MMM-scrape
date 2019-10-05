@@ -1,4 +1,6 @@
-const JSDOM = require('jsdom').JSDOM;
+Log.info('error');
+Log.log('log');
+Log.error('info');
 
 Module.register("MMM-crape",{
 	defaults: {
