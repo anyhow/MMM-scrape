@@ -1,6 +1,6 @@
 Module.register("MMM-crape",{
 	defaults: {
-		url: "https://fm4.orf.at/player/live";
+		url: "https://fm4.orf.at/player/live",
 		domselector: "span.playing"
 	},
 
@@ -22,7 +22,12 @@ const { JSDOM } = jsdom;
 				wrapper.innerHTML = nodeList[i];
 				return wrapper;
  			}
+			
 		}
 		}		
+	
+	var wrap = document.createElement("div");
+	wrapper.innerHTML = "HAALLLO";
+	return wrapper;	      
 	}
 });
