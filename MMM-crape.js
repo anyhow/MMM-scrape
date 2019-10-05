@@ -4,12 +4,13 @@ Module.register("MMM-crape",{
 		domselector: "span.playing"
 	},
 	
+	const jsdom = require("jsdom");
+	const { JSDOM } = jsdom;
 	
 	scrapContent: function(){
 	JSDOM.fromURL(this.config.url)
 		.then((dom) => {
-		const document = dom.window.document;
-		try {
+			const document = dom.window.document;
 			const nodeList = document.querySelectorAll(this.config.domselector).textContent;);
 			let i = 0;
 			for( i=0; i < nodeList.length; i++ ) {
@@ -18,7 +19,6 @@ Module.register("MMM-crape",{
 				wrapper.innerHTML = nodeList[i];
 				return wrapper;
  			}
-		}
 		}
 	},
 
