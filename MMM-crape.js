@@ -9,7 +9,7 @@ Module.register("MMM-crape",{
 	getDom: function() {
 		var wrapper = document.createElement("div");
 		wrapper.innerHTML = "HAALLoo";
-		console.log('TEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEST');
+		console.log("TEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEST");
 		return wrapper;
 
 	}
