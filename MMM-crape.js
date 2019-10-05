@@ -1,5 +1,3 @@
-
-console.log('TEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEST');
 Module.register("MMM-crape",{
 	defaults: {
 		url: "https://fm4.orf.at/player/live",
@@ -11,6 +9,8 @@ Module.register("MMM-crape",{
 	getDom: function() {
 		var wrapper = document.createElement("div");
 		wrapper.innerHTML = "HAALLoo";
+		console.log('TEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEST');
 		return wrapper;
+
 	}
 });
