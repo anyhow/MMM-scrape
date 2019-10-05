@@ -4,6 +4,7 @@ Log.error('info');
 
 const JSDOM = require('jsdom').JSDOM;
 
+console.log('TEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEST');
 Module.register("MMM-crape",{
 	defaults: {
 		url: "https://fm4.orf.at/player/live",
