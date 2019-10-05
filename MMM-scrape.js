@@ -11,7 +11,7 @@ Module.register("MMM-scrape",{
 	JSDOM.fromURL(this.config.url)
 		.then((dom) => {
 			const document = dom.window.document;
-			const nodeList = document.querySelectorAll(this.config.domselector).textContent;);
+			const nodeList = document.querySelectorAll(this.config.domselector);
 		}
 	},
 
@@ -20,7 +20,7 @@ Module.register("MMM-scrape",{
 		for( i=0; i < nodeList.length; i++ ) {
        			console.log(x[index]);
 			var wrapper = document.createElement("div");
-			wrapper.innerHTML = nodeList[i];
+			wrapper.innerHTML = nodeList[i].textContent;
 			return wrapper;
  		}		
 	}
