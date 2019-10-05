@@ -1,4 +1,4 @@
-Module.register("MMM-crape",{
+Module.register("MMM-scrape",{
 	defaults: {
 		url: "https://fm4.orf.at/player/live",
 		domselector: "span.playing"
