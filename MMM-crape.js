@@ -12,22 +12,16 @@ Module.register("MMM-crape",{
 		.then((dom) => {
 			const document = dom.window.document;
 			const nodeList = document.querySelectorAll(this.config.domselector).textContent;);
-			let i = 0;
-			for( i=0; i < nodeList.length; i++ ) {
-       				console.log(x[index]);
-				var wrapper = document.createElement("div");
-				wrapper.innerHTML = nodeList[i];
-				return wrapper;
- 			}
 		}
 	},
 
-	
 	getDom: function() {
-		var wrapper = document.createElement("div");
-		wrapper.innerHTML = "HAALLoo";
-		console.log("TEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEST");
-		return wrapper;
-
+		let i = 0;
+		for( i=0; i < nodeList.length; i++ ) {
+       			console.log(x[index]);
+			var wrapper = document.createElement("div");
+			wrapper.innerHTML = nodeList[i];
+			return wrapper;
+ 		}		
 	}
 });
