@@ -18,7 +18,6 @@ Module.register("MMM-scrape",{
 	getDom: function() {
 		let i = 0;
 		for( i=0; i < nodeList.length; i++ ) {
-       			console.log(x[index]);
 			var wrapper = document.createElement("div");
 			wrapper.innerHTML = nodeList[i].textContent;
 			return wrapper;
