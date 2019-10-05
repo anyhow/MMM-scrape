@@ -1,5 +1,8 @@
 # MMM-crape
 
+
+```javascript
+
 modules: [
     {
         module: 'MMM-crape',
@@ -10,3 +13,5 @@ modules: [
         }
     }
 ]
+
+```
