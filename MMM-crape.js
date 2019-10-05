@@ -1,8 +1,3 @@
-Log.info('error');
-Log.log('log');
-Log.error('info');
-
-const JSDOM = require('jsdom').JSDOM;
 
 console.log('TEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEST');
 Module.register("MMM-crape",{
