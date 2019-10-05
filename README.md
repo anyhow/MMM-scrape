@@ -1,8 +1,8 @@
 # MMM-scrape
 
-This is supposed to become a module for Magic Mirror which scrapes a custom part of a remote site based on a DOM selector.
+This is supposed to become a module for Magic Mirror which loads parts of a remote website based on a DOM selector.
 
-Not working.
+Not working. Needs help.
 
 
 
