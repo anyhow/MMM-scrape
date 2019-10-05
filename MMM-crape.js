@@ -10,21 +10,7 @@ const { JSDOM } = jsdom;
 
 
 	getDom: function() {
-		JSDOM.fromURL(this.config.url)
-		.then((dom) => {
-		const document = dom.window.document;
-		try {
-			const nodeList = document.querySelectorAll(this.config.domselector).textContent;);
-			let i = 0;
-			for( i=0; i < nodeList.length; i++ ) {
-       				console.log(x[index]);
-				var wrapper = document.createElement("div");
-				wrapper.innerHTML = nodeList[i];
-				return wrapper;
- 			}
 
-		}
-		}
 
 	var wrapper = document.createElement("div");
 	wrapper.innerHTML = "HAALLLO";
