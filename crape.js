@@ -5,8 +5,10 @@ Module.register("MMM-crape",{
 	},
 
 
+const jsdom = require("jsdom");
+const { JSDOM } = jsdom;
+
 		
-	// Override dom generator.
 	getDom: function() {
 		JSDOM.fromURL(this.config.url)
 		.then((dom) => {
