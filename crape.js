@@ -14,8 +14,7 @@ const { JSDOM } = jsdom;
 		.then((dom) => {
 		const document = dom.window.document;
 		try {
-			const nodeList = document.querySelectorAll(this.config.domselector).textContent;);
-			
+			const nodeList = document.querySelectorAll(this.config.domselector).textContent;);	
 			let i = 0;
 			for( i=0; i < nodeList.length; i++ ) {
        				console.log(x[index]);
@@ -24,8 +23,6 @@ const { JSDOM } = jsdom;
 				return wrapper;
  			}
 		}
-		};
-		 
-		
+		};		
 	}
 });
