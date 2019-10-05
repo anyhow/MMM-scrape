@@ -10,7 +10,7 @@
         config: {
                 url: "http://fm4.orf.at/player/live",
                 domselector: "span.playing"
-        }
+                }
     },
 
 
