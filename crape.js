@@ -23,6 +23,6 @@ const { JSDOM } = jsdom;
 				return wrapper;
  			}
 		}
-		};		
+		}		
 	}
 });
