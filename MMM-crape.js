@@ -6,7 +6,7 @@ Module.register("MMM-crape",{
 
 	getDom: function() {
 		var wrapper = document.createElement("div");
-		wrapper.innerHTML = this.config.text;
+		wrapper.innerHTML = "HAALLoo";
 		return wrapper;
 	}
 });
