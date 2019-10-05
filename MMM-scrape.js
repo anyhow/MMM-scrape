@@ -3,24 +3,29 @@ Module.register("MMM-scrape",{
 		url: "https://fm4.orf.at/player/live",
 		domselector: "span.playing"
 	},
-	
-	const jsdom = require("jsdom");
-	const { JSDOM } = jsdom;
-	
-	scrapContent: function(){
-	JSDOM.fromURL(this.config.url)
-		.then((dom) => {
-			const document = dom.window.document;
-			const nodeList = document.querySelectorAll(this.config.domselector);
-		}
+	nodeList:null,
+	notificationReceived(notification,payload){
+		Log.log("notification received="+notification);
+		if(notification == 'ALL_MODULES_STARTED'){
+			this.sendSocketNotification("CONFIG",this.config)
+			this.sendSocketNotification("getcontent",null)
+		}		
 	},
-
+  socketNotificationReceived: function(notification,payload){
+		  if(notification == 'node_data'){
+				nodeList=payload
+				this.updateDom(1)
+			}
+	},
 	getDom: function() {
-		let i = 0;
-		for( i=0; i < nodeList.length; i++ ) {
-			var wrapper = document.createElement("div");
-			wrapper.innerHTML = nodeList[i].textContent;
-			return wrapper;
- 		}		
+    wrapper=document.createElement("div");
+		if(this.nodeList){
+			for( let n of this.nodeList ) {
+				var w = document.createElement("div");
+				w.innerHTML=n.textContent;
+				wrapper.appendChild(w)
+			}	
+		}
+		return wrapper;		
 	}
 });

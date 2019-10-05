@@ -1,0 +1,13 @@
+{
+  "name": "MMM-scrape",
+  "version": "0.0.1",
+  "description": "scrape playing music from site ",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "anyhow",
+  "license": "ISC",
+  "dependencies": {
+    "jsdom":"latest"
+  } 
+}
