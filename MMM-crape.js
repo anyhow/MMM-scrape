@@ -8,13 +8,13 @@ Module.register("MMM-crape",{
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 
-		
+
 	getDom: function() {
 		JSDOM.fromURL(this.config.url)
 		.then((dom) => {
 		const document = dom.window.document;
 		try {
-			const nodeList = document.querySelectorAll(this.config.domselector).textContent;);	
+			const nodeList = document.querySelectorAll(this.config.domselector).textContent;);
 			let i = 0;
 			for( i=0; i < nodeList.length; i++ ) {
        				console.log(x[index]);
@@ -22,12 +22,12 @@ const { JSDOM } = jsdom;
 				wrapper.innerHTML = nodeList[i];
 				return wrapper;
  			}
-			
+
 		}
-		}		
-	
-	var wrap = document.createElement("div");
+		}
+
+	var wrapper = document.createElement("div");
 	wrapper.innerHTML = "HAALLLO";
-	return wrapper;	      
+	return wrapper;
 	}
 });
