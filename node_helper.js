@@ -7,6 +7,7 @@ const { JSDOM } = c;
 
 module.exports = NodeHelper.create({
   config:null,
+	debug: true,
 	init(){
 		console.log("init module helper "+this.name);
 	},
@@ -27,28 +28,33 @@ module.exports = NodeHelper.create({
 		if (notification === "CONFIG") {
 			// save payload config info
 			this.config=payload
-			// wait 15 seconds, send a message back to module
-			//setTimeout(()=> { }, 15000)
 		}
+		// module wants content from api
 		else if(notification === "getcontent") {
 			 this.getcontent()
 		}
 
 	},
+	// get the selected dom nodes from the specific web site page
 	getcontent(){
 		  console.log("getting content from "+this.config.url)
 			JSDOM.fromURL(this.config.url)
-				.then((dom) => {
+				.then(
+				  // this is the no error return from JSDOM promise
+				  (dom) => {
 						console.log(" data from JSDOM");
-					const document = dom.window.document;
-					const nodeList = document.querySelectorAll(this.config.domselector);
-					console.log(dom.serialize());
-					this.sendSocketNotification("node_data",nodeList)
-				},
-
-				(error) => {
-					console.log(" error from JSDOM =" +error);
-				}
+						let nodeList = dom.window.document.querySelectorAll(this.config.domselector);
+						// dump the html so we can find the node
+						if(this.debug){
+							console.log(dom.serialize());
+							console.log("returning nodelist to module, size="+Object.keys(nodeList).length) 
+						}
+						// send the content back to the module to display
+						this.sendSocketNotification("node_data",nodeList)
+					},
+					(error) => {
+						console.log(" error from JSDOM =" +error);
+					}
 				)			
 	},
 
