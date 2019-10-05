@@ -4,16 +4,9 @@ Module.register("MMM-crape",{
 		domselector: "span.playing"
 	},
 
-
-const jsdom = require("jsdom");
-const { JSDOM } = jsdom;
-
-
 	getDom: function() {
-
-
-	var wrapper = document.createElement("div");
-	wrapper.innerHTML = "HAALLLO";
-	return wrapper;
+		var wrapper = document.createElement("div");
+		wrapper.innerHTML = this.config.text;
+		return wrapper;
 	}
 });
