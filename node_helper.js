@@ -38,7 +38,7 @@ module.exports = NodeHelper.create({
 	// get the selected dom nodes from the specific web site page
 	getcontent(){
 		  console.log("getting content from "+this.config.url)
-			JSDOM.fromURL(this.config.url)
+			JSDOM.fromURL(this.config.url, { runScripts: "dangerously" })
 				.then(
 				  // this is the no error return from JSDOM promise
 				  (dom) => {
