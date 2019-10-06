@@ -7,7 +7,7 @@ const { JSDOM } = c;
 
 module.exports = NodeHelper.create({
   config:null,
-	debug: true,
+	debug: false,
 	init(){
 		console.log("init module helper "+this.name);
 	},
@@ -37,25 +37,43 @@ module.exports = NodeHelper.create({
 	},
 	// get the selected dom nodes from the specific web site page
 	getcontent(){
+
+		//setting JSDOM  parameters
+		if(this.config.loadScripts){
+			var jsdomurl = '{ runScripts: "dangerously", resources: "usable" }'
+		} else {
+		var jsdomurl = "";
+		}
+
 		  console.log("getting content from "+this.config.url)
-			JSDOM.fromURL(this.config.url, { runScripts: "dangerously" })
+			JSDOM.fromURL(this.config.url,+jsdomurl)
 				.then(
 				  // this is the no error return from JSDOM promise
 				  (dom) => {
 						console.log(" data from JSDOM");
-						let nodeList = dom.window.document.querySelectorAll(this.config.domselector);
+						var nodeList = dom.window.document.querySelectorAll(this.config.domselector);
 						// dump the html so we can find the node
 						if(this.debug){
 							console.log(dom.serialize());
-							console.log("returning nodelist to module, size="+Object.keys(nodeList).length) 
+							console.log("returning nodelist to module, size="+Object.keys(nodeList).length);
+							console.log("objectkeys "+Object.keys(nodeList).textContent);
+							console.log("nodeList0 "+ nodeList[0]);
+							console.log("nodelisttextcontent "+ nodeList[0].textContent) 
 						}
+						//transform nodeList into array, because nodeList couldnt be received by MMM-scape.js
+						var content = [];
+						for(i=0; i<Object.keys(nodeList).length;i++){
+						content[i] = nodeList[i].textContent;
+						//console.log("content i "+ i + content[i]);
+						};
+
 						// send the content back to the module to display
-						this.sendSocketNotification("node_data",nodeList)
+						this.sendSocketNotification("node_data",content)
 					},
 					(error) => {
 						console.log(" error from JSDOM =" +error);
 					}
-				)			
+				)
 	},
 
 });
